@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Bookings;
 
@@ -19,9 +20,12 @@ class BookingsController extends Controller
             'guest_name' => ['required', 'string', 'max:255'],
             'guest_email' => ['required', 'email', 'max:255'],
             'room_type' => ['required', 'string', 'max:255'],
-            'check_in_date' => ['required', 'date'],
-            'check_out_date' => ['required', 'date', 'after_or_equal:check_in_date'],
+            'check_in_date' => ['required', 'date_format:Y-m-d\\TH:i'],
+            'check_out_date' => ['required', 'date_format:Y-m-d\\TH:i', 'after_or_equal:check_in_date'],
         ]);
+
+        $validated['check_in_date'] = Carbon::createFromFormat('Y-m-d\\TH:i', $validated['check_in_date'])->format('Y-m-d H:i:s');
+        $validated['check_out_date'] = Carbon::createFromFormat('Y-m-d\\TH:i', $validated['check_out_date'])->format('Y-m-d H:i:s');
 
         Bookings::create($validated);
 
