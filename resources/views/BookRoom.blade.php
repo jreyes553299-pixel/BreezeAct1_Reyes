@@ -46,13 +46,13 @@
 
                     <div class="check-in-date">
                         <x-input-label for="check_in_date" value="Check-in Date" />
-                        <x-text-input id="check_in_date" name="check_in_date" type="date" class="block mt-1 w-full" required />
+                        <x-text-input id="check_in_date" name="check_in_date" type="datetime-local" class="block mt-1 w-full" required />
                         <x-input-error :messages="$errors->get('check_in_date')" class="mt-2" />
                     </div>
 
                     <div class="check-out-date">
                         <x-input-label for="check_out_date" value="Check-Out Date" />
-                        <x-text-input id="check_out_date" name="check_out_date" type="date" class="block mt-1 w-full" required />
+                        <x-text-input id="check_out_date" name="check_out_date" type="datetime-local" class="block mt-1 w-full" required />
                         <x-input-error :messages="$errors->get('check_out_date')" class="mt-2" />
                     </div>
 
