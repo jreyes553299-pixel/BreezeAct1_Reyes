@@ -16,16 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('Bookings')" :active="request()->routeIs('Bookings')">
-                        {{ __('Bookings') }}
-                    </x-nav-link>
-                </div>
-
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('BookRoom')" :active="request()->routeIs('BookRoom')">
-                        {{ __('Book Room') }}
+                        {{ __('Book') }}
                     </x-nav-link>
                 </div>
 
@@ -40,6 +34,13 @@
                         {{ __('Payment') }}
                     </x-nav-link>
                 </div>
+                
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('Bookings')" :active="request()->routeIs('Bookings')">
+                        {{ __('Bookings') }}
+                    </x-nav-link>
+                </div>
+                
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('Room')" :active="request()->routeIs('Room')">

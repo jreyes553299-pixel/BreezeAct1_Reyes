@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,9 +12,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/Bookings', function () {
-    return view('Bookings');
-})->middleware(['auth', 'verified'])->name('Bookings');
+Route::get('/Bookings', [BookingsController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('Bookings');
+
+Route::post('/BookRoom', [BookingsController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('BookRoom.store');
 
 Route::get('/BookRoom', function () {
     return view('BookRoom');
